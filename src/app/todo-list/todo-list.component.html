@@ -1,0 +1,31 @@
+<div class="container-inner">
+    <div class="todo-list">
+        <h3>All ToDo’s</h3>
+        <button class="button" (click)="isAddDialogOpen = true">Add a ToDo
+            <img src="/assets/images/add-todo.svg" alt="Add-todo">
+        </button>
+    </div>
+
+
+    <div class="todo-list-item">
+        <div class="checkbox">
+            <input type="checkbox">
+            <span>
+                <img src="/assets/images/check.svg" alt="Check">
+            </span>
+        </div>
+        <p>Respond to Mike’s email</p>
+        <button class="todo-list-item-button" style="margin-left: auto;" (click)="isEditDialogOpen = true">
+            <img src="/assets/images/edit-button.svg" alt="Edit-button">
+        </button>
+        <button class="todo-list-item-button" (click)="isRemovingDialogOpen = true">
+            <img src="/assets/images/delete-button.svg" alt="Delete-button">
+        </button>
+    </div>
+</div>
+
+<dialog [open]="isAddDialogOpen">
+    <app-add-edit-todo-dialog title="Add a ToDo" (onSave)="onSaveTodo($event)"></app-add-edit-todo-dialog> 
+</dialog>
+<dialog [open]="isEditDialogOpen">Edit a ToDo</dialog>
+<dialog [open]="isRemovingDialogOpen">Removing a ToDo</dialog>

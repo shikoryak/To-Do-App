@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --color-gray: #E1E1E1;
+    --color-dark: #30313A;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #686974;
+    --color-white: #FFFFFF;
+    --color-yellow: #E59D40;
+    --color-green: #2CC88E;
+    --color-error: #FDF7EB;
+    --color-error-dark: #E39735;
+    --color-black: #262626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-inner {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: var(--color-dark);
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+p,
+label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--color-dark-gray);
+    margin: 0;
+    text-align: center;
+}
+
+label {
+    text-align: start;
+    padding-bottom: 9px;
+}
+
+input, textarea {
+    color: var(--color-black);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px 14px;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 6px;
+    height: 40px;
+
+    &.ng-invalid.ng-touched {
+        background-color: var(--color-error);
+        border-color: var(--color-error-dark);
+
+    }
+}
+
+textarea {
+    height: auto;
+}
+
+.button {
+    width: 100%;
+    padding: 14px 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--color-white);
+    background: linear-gradient(270deg, #1EA39B 0%, #38EF7D 100%);
+    border-radius: 6px;
+    border: none;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 4px 14px rgba(44, 203, 139, 0.3);
+}

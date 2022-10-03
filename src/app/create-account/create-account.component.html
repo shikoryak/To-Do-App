@@ -1,0 +1,61 @@
+<div class="container-inner">
+    <div class="form-container">
+        <h3>Create Account</h3>
+        <p>Let’s get productive toghether!</p>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="fullname">Full Name *</label>
+                    <input type="text" formControlName="fullName" id="fullname">
+                    <span class="form-error"></span>
+                </div>
+                <div class="form-field">
+                    <label for="username">Username *</label>
+                    <input type="text" formControlName="userName" id="username">
+                    <span class="form-error"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="email">Email *</label>
+                    <input type="email" formControlName="email" id="email">
+                    <span *ngIf="form.get('email')?.errors?.['email']" class="form-error">Please enter a valid email address</span>
+                </div>
+                <div class="form-field">
+                    <label for="phone">Phone number *</label>
+                    <input type="text" formControlName="phone" id="phone">
+                    <span *ngIf="form.get('phone')?.errors?.['pattern']" class="form-error">Please enter a valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="address">Address line *</label>
+                    <input type="text" formControlName="address" id="address">
+                    <span class="form-error"></span>
+                </div>
+                <div class="form-field suite-field">
+                    <label for="suite">Suite</label>
+                    <input type="text" formControlName="suite" id="suite">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-field">
+                    <label for="city">City *</label>
+                    <input type="text" formControlName="city" id="city">
+                    <span class="form-error"></span>
+                </div>
+                <div class="form-field">
+                    <label for="zip">ZIP Code *</label>
+                    <input type="text" formControlName="zip" id="zip">
+                    <span class="form-error"></span>
+                </div>
+            </div>
+            <button class="button form-button" (click)="onCreateAccount()">Create Account
+                <img src="/assets/images/arrow-right.svg" alt="Arrow-right">
+            </button>
+        </form>
+    </div>
+</div>
