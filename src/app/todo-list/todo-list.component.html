@@ -6,26 +6,43 @@
         </button>
     </div>
 
-
-    <div class="todo-list-item">
+    <div class="todo-list-item" *ngFor="let item of todoList">
         <div class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" [(ngModel)]="item.completed">
             <span>
                 <img src="/assets/images/check.svg" alt="Check">
             </span>
         </div>
-        <p>Respond to Mike’s email</p>
-        <button class="todo-list-item-button" style="margin-left: auto;" (click)="isEditDialogOpen = true">
+        <p [class.completed]="item.completed">
+            {{item.title}}
+        </p>
+        <button class="todo-list-item-button" style="margin-left: auto;"
+            (click)="selectedTodo = item; isEditDialogOpen = true">
             <img src="/assets/images/edit-button.svg" alt="Edit-button">
         </button>
-        <button class="todo-list-item-button" (click)="isRemovingDialogOpen = true">
+        <button class="todo-list-item-button" (click)="selectedTodo = item; isRemovingDialogOpen = true">
             <img src="/assets/images/delete-button.svg" alt="Delete-button">
         </button>
     </div>
 </div>
 
 <dialog [open]="isAddDialogOpen">
-    <app-add-edit-todo-dialog title="Add a ToDo" (onSave)="onSaveTodo($event)"></app-add-edit-todo-dialog> 
+    <app-add-edit-todo-dialog title="Add a ToDo" (onSave)="onSaveTodo($event)"></app-add-edit-todo-dialog>
+    <img class="dialog-close" src="/assets/images/close.svg" alt="Close" (click)="isAddDialogOpen = false">
 </dialog>
-<dialog [open]="isEditDialogOpen">Edit a ToDo</dialog>
-<dialog [open]="isRemovingDialogOpen">Removing a ToDo</dialog>
+
+<dialog [open]="isEditDialogOpen">
+    <app-add-edit-todo-dialog title="Edit a ToDo" (onSave)="onEditTodo($event)"></app-add-edit-todo-dialog>
+    <img class="dialog-close" src="/assets/images/close.svg" alt="Close" (click)="isEditDialogOpen = false">
+</dialog>
+
+<dialog [open]="isRemovingDialogOpen">
+    <img class="dialog-close" src="/assets/images/close.svg" alt="Close" (click)="isRemovingDialogOpen = false">
+    <div class="removing-dialog">
+        <h3>Removing a ToDo</h3>
+        <p class="removing-dialog-description">Are you sure you want to remove this ToDo? It would be impossible to
+            restore it afterwards</p>
+        <p><em><strong>Respond to Mike’s email</strong></em></p>
+        <button class="button" (click)="onDeleteTodo()">Yes, Remove ToDo</button>
+    </div>
+</dialog>

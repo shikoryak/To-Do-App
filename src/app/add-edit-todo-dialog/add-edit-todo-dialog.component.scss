@@ -1,0 +1,23 @@
+h3 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 22px;
+    color: var(--color-dark);
+    padding: 0;
+}
+
+textarea {
+    width: 400px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-placeholder);
+    margin: 40px 0;
+}
+.arrow-right {
+    top: 16px;
+    right: 16px;
+    position: absolute;
+}

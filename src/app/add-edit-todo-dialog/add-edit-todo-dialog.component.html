@@ -1,3 +1,5 @@
 <h3>{{title}}</h3>
-<textarea rows="2" [(ngModel)]="toDoTitle"></textarea>
-<button class="button" (click)="onSaveTodo()">Save ToDo</button>
+<textarea rows="2" [(ngModel)]="toDoTitle" placeholder="Start typing ..."></textarea>
+<button class="button" [disabled]="!toDoTitle" (click)="onSaveTodo()">Save ToDo
+    <img class="arrow-right" src="/assets/images/arrow-right.svg" alt="Arrow-right">
+</button>

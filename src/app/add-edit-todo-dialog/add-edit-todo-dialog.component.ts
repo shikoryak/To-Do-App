@@ -18,7 +18,8 @@ export class AddEditTodoDialogComponent implements OnInit {
   }
 
   onSaveTodo(): void {
-    this.onSave.emit(this.toDoTitle)
+    this.onSave.emit(this.toDoTitle);
+    this.toDoTitle = '';
   }
 
 }
